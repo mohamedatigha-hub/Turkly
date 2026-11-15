@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turkly | Turkish Property Trusted by Libyans</title>
+  <meta name="description" content="Turkly helps Libyan and international buyers find investment properties and family homes in Istanbul through licensed, trusted real estate agencies.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Noto+Naskh+Arabic:wght@500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0B1F3A;
+      --navy-soft: #132B4D;
+      --gold: #C9A227;
+      --gold-dark: #A8861C;
+      --bg: #FAF8F3;
+      --white: #FFFFFF;
+      --text: #1F1F1F;
+      --muted: #5A5A5A;
+      --line: #E6E1D6;
+      --radius: 12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    h1, h2, h3, .logo-text {
+      font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    h1 em, h2 em { color: var(--gold); font-style: italic; }
+
+    /* Header */
+    header {
+      background: var(--navy);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gold);
+    }
+
+    .logo img { height: 44px; width: auto; display: block; }
+
+    .logo-text {
+      font-size: 1.6rem;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+    }
+
+    .logo.has-img .logo-text { display: none; }
+
+    .btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 12px 22px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .btn:hover { background: var(--gold-dark); }
+
+    .btn-small { padding: 9px 16px; font-size: 0.85rem; }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .btn-outline:hover { background: rgba(255, 255, 255, 0.08); }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+      padding: 72px 0 200px;
+      background:
+        radial-gradient(ellipse 70% 45% at 72% 88%, rgba(201, 162, 39, 0.22), transparent 70%),
+        linear-gradient(180deg, #081629 0%, #0B1F3A 45%, #16304F 100%);
+    }
+
+    /* When istanbul.jpg sits next to index.html, it replaces the drawn skyline */
+    .hero.has-photo {
+      background:
+        linear-gradient(180deg, rgba(8, 22, 41, 0.88) 0%, rgba(11, 31, 58, 0.6) 55%, rgba(8, 22, 41, 0.85) 100%),
+        url("istanbul.jpg") center bottom / cover no-repeat,
+        var(--navy);
+    }
+
+    .hero.has-photo .skyline { display: none; }
+
+    .hero .container { position: relative; z-index: 1; }
+
+    .skyline {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 190px;
+      z-index: 0;
+    }
+
+    .eyebrow-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow-row::after {
+      content: "";
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .eyebrow-row .eyebrow { margin-bottom: 0; }
+
+    @media (max-width: 719px) {
+      .eyebrow-row::after { display: none; }
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: 2.35rem;
+      overflow-wrap: break-word;
+      line-height: 1.05;
+      font-weight: 600;
+      text-transform: uppercase;
+      max-width: 680px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 1.05rem;
+      max-width: 560px;
+      margin-bottom: 32px;
+    }
+
+    .hero .ar {
+      font-size: 1.25rem;
+      color: var(--gold);
+      margin-bottom: 16px;
+      text-align: left;
+      font-family: "Noto Naskh Arabic", "Geeza Pro", serif;
+    }
+
+    #contact { scroll-margin-top: 80px; }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      max-width: 560px;
+    }
+
+    .stat-value {
+      color: var(--gold);
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .stat-label {
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 0.85rem;
+    }
+
+    /* Sections */
+    section { padding: 80px 0; }
+
+    .section-head { margin-bottom: 40px; max-width: 600px; }
+
+    .section-head h2 {
+      color: var(--navy);
+      font-size: 1.8rem;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .section-head p { color: var(--muted); }
+
+    .gold-line {
+      width: 40px;
+      height: 3px;
+      background: var(--gold);
+      margin-bottom: 18px;
+      border-radius: 2px;
+    }
+
+    /* How it works */
+    .steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .step {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .step h3 {
+      color: var(--navy);
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .step p { color: var(--muted); font-size: 0.95rem; }
+
+    /* Property range */
+    .range { background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+    .price-band {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--white);
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      margin-bottom: 32px;
+    }
+
+    .price-band span { color: var(--gold); }
+
+    .types {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .type {
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 24px;
+      background: var(--bg);
+    }
+
+    .type h3 { color: var(--navy); font-size: 1.1rem; margin-bottom: 6px; }
+
+    .type p { color: var(--muted); font-size: 0.95rem; }
+
+    /* Partners */
+    .partners { background: var(--navy); color: var(--white); }
+
+    .partners .section-head h2 { color: var(--white); }
+
+    .partners .section-head p { color: rgba(255, 255, 255, 0.75); }
+
+    .partner-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .who-list { list-style: none; }
+
+    .who-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .who-list li::before {
+      content: "";
+      flex-shrink: 0;
+      width: 8px;
+      height: 8px;
+      margin-top: 9px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    .who-list strong { display: block; }
+
+    .who-list span { color: rgba(255, 255, 255, 0.65); font-size: 0.9rem; }
+
+    form {
+      background: var(--white);
+      color: var(--text);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    form h3 { color: var(--navy); margin-bottom: 20px; }
+
+    .field { margin-bottom: 16px; }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      font: inherit;
+      font-size: 0.95rem;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      background: var(--white);
+    }
+
+    textarea { resize: vertical; min-height: 110px; }
+
+    form .btn { width: 100%; margin-top: 8px; }
+
+    .form-note { color: var(--muted); font-size: 0.8rem; margin-top: 12px; text-align: center; }
+
+    /* Footer */
+    footer {
+      background: #081629;
+      color: rgba(255, 255, 255, 0.7);
+      padding: 40px 0;
+      font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
+
+    .footer-links a { color: var(--white); }
+
+    .footer-links a:hover { color: var(--gold); }
+
+    .hp { position: absolute; left: -9999px; }
+
+    .wa-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      z-index: 20;
+    }
+
+    .thanks { text-align: center; padding: 12px 0; }
+    .thanks h3 { margin-bottom: 10px; }
+    .thanks p { color: var(--muted); margin-bottom: 20px; }
+
+    /* Tablet and desktop */
+    @media (min-width: 720px) {
+      .hero { padding: 110px 0 280px; }
+      .hero h1 { font-size: 4.4rem; }
+      .skyline { height: 280px; }
+      .logo img { height: 52px; }
+      .hero-stats { grid-template-columns: repeat(3, 1fr); }
+      .steps, .types { grid-template-columns: repeat(3, 1fr); }
+      .section-head h2 { font-size: 2.2rem; }
+      .partner-grid { grid-template-columns: 1fr 1fr; align-items: start; }
+      .footer-inner { flex-direction: row; justify-content: space-between; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="#" class="logo" id="logo">
+        <img src="logo.png" alt="Turkly" onload="this.parentNode.classList.add('has-img')" onerror="this.remove()">
+        <span class="logo-text">TURKLY</span>
+      </a>
+      <a href="#contact" class="btn btn-small">Contact us</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <svg class="skyline" viewBox="0 0 1200 260" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+        <!-- Distant layer: hills and bridge -->
+        <g fill="#16314F" opacity="0.9">
+          <path d="M0 225 Q300 195 600 215 T1200 210 V260 H0 Z"/>
+          <rect x="78" y="118" width="6" height="142"/>
+          <rect x="328" y="118" width="6" height="142"/>
+          <rect x="0" y="198" width="430" height="5"/>
+        </g>
+        <path d="M0 192 Q40 150 81 120 Q206 210 331 120 Q375 155 430 195" fill="none" stroke="#16314F" stroke-width="2"/>
+        <!-- Near layer: city, Galata tower and mosques -->
+        <g fill="#06121F">
+          <rect x="0" y="228" width="70" height="32"/>
+          <rect x="62" y="216" width="52" height="44"/>
+          <rect x="112" y="232" width="70" height="28"/>
+          <rect x="183" y="128" width="38" height="132"/>
+          <rect x="179" y="126" width="46" height="6"/>
+          <polygon points="179,128 202,62 225,128"/>
+          <rect x="200" y="50" width="4" height="14"/>
+          <rect x="225" y="222" width="62" height="38"/>
+          <rect x="285" y="230" width="80" height="30"/>
+          <rect x="362" y="219" width="56" height="41"/>
+          <rect x="416" y="234" width="92" height="26"/>
+          <rect x="505" y="224" width="70" height="36"/>
+          <rect x="574" y="96" width="8" height="164"/>
+          <polygon points="572,98 578,64 584,98"/>
+          <rect x="606" y="122" width="6" height="138"/>
+          <polygon points="604,124 609,96 614,124"/>
+          <rect x="590" y="200" width="262" height="60"/>
+          <path d="M600 216 Q600 184 642 180 L642 216 Z"/>
+          <path d="M800 180 Q842 184 842 216 L800 216 Z"/>
+          <path d="M640 202 Q640 138 721 132 Q802 138 802 202 Z"/>
+          <rect x="719" y="112" width="4" height="22"/>
+          <rect x="830" y="122" width="6" height="138"/>
+          <polygon points="828,124 833,96 838,124"/>
+          <rect x="860" y="96" width="8" height="164"/>
+          <polygon points="858,98 864,64 870,98"/>
+          <rect x="878" y="224" width="70" height="36"/>
+          <rect x="958" y="142" width="6" height="118"/>
+          <polygon points="956,144 961,118 966,144"/>
+          <rect x="970" y="212" width="124" height="48"/>
+          <path d="M982 214 Q982 172 1032 168 Q1082 172 1082 214 Z"/>
+          <rect x="1030" y="152" width="3" height="18"/>
+          <rect x="1100" y="142" width="6" height="118"/>
+          <polygon points="1098,144 1103,118 1108,144"/>
+          <rect x="1112" y="226" width="88" height="34"/>
+        </g>
+      </svg>
+      <div class="container">
+        <div class="eyebrow-row"><span class="eyebrow">Turkey properties · Trusted by Libyans</span></div>
+        <h1>Turkish property, <em>trusted by Libyans</em></h1>
+        <p class="ar" lang="ar" dir="rtl">الطريق المباشر إلى العقار التركي</p>
+        <p>We help Libyan and international buyers find investment properties and family homes in Istanbul, through licensed, trusted real estate agencies.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn">Find a property</a>
+          <a href="#partners" class="btn btn-outline">Partner with us</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="stat-value">$<span class="count" data-target="3000000">0</span></div>
+            <div class="stat-label">Properties up to</div>
+          </div>
+          <div>
+            <div class="stat-value">Istanbul</div>
+            <div class="stat-label">Focus market</div>
+          </div>
+          <div>
+            <div class="stat-value">Licensed</div>
+            <div class="stat-label">Partner agencies</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="container">
+        <div class="section-head">
+          <div class="gold-line"></div>
+          <h2>How it works</h2>
+          <p>A direct, transparent path from your first message to your keys.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3>Tell us what you need</h3>
+            <p>Your budget, property type, timeline and whether you are buying to live or to invest.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3>We shortlist properties</h3>
+            <p>We source options from licensed Istanbul agencies and check them before they reach you.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h3>You buy with confidence</h3>
+            <p>The licensed agency handles the paperwork and closing. We stay with you throughout.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="range" id="range">
+      <div class="container">
+        <div class="section-head">
+          <div class="gold-line"></div>
+          <h2>Property range</h2>
+          <p>Investment properties and family homes in Istanbul, from premium apartments to large family residences.</p>
+        </div>
+        <div class="price-band">Budget range: <span>$<span class="count" data-target="1000000">0</span> to $<span class="count" data-target="3000000">0</span></span></div>
+        <div class="types">
+          <div class="type">
+            <h3>1+1 apartments</h3>
+            <p>Premium residences suited to investors and individual buyers.</p>
+          </div>
+          <div class="type">
+            <h3>2+1 apartments</h3>
+            <p>Spacious homes for couples and small families.</p>
+          </div>
+          <div class="type">
+            <h3>4+1 homes and villas</h3>
+            <p>Large family residences with the space and privacy families look for.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="container">
+        <div class="section-head">
+          <div class="gold-line"></div>
+          <h2>Why Turkly</h2>
+          <p>Direct. Trusted. Transparent.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <h3>Verified properties</h3>
+            <p>Every property is checked on the ground in Istanbul before we present it.</p>
+          </div>
+          <div class="step">
+            <h3>Licensed agencies</h3>
+            <p>We work only with established, licensed Turkish real estate agencies.</p>
+          </div>
+          <div class="step">
+            <h3>Direct connection</h3>
+            <p>One point of contact who speaks your language, from Libya to Istanbul.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="partners" id="partners">
+      <div class="container partner-grid">
+        <div>
+          <div class="section-head">
+            <div class="gold-line"></div>
+            <h2>Who we work with</h2>
+            <p>Buyers come to us directly, and through the professionals who advise them. Partners receive a referral fee once a sale closes.</p>
+          </div>
+          <ul class="who-list">
+            <li><div><strong>Libyan buyers and investors</strong><span>Family homes and investment properties in Istanbul</span></div></li>
+            <li><div><strong>International buyers</strong><span>Relocating families and overseas investors</span></div></li>
+            <li><div><strong>Law firms and relocation firms</strong><span>Refer clients and earn a fee paid on closing</span></div></li>
+            <li><div><strong>Family offices</strong><span>Clients investing in Turkish real estate</span></div></li>
+          </ul>
+        </div>
+
+        <form id="contact" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact">
+          <p class="hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+          <h3>Get in touch</h3>
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" required maxlength="80" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="type">I am a</label>
+            <select id="type" name="type">
+              <option>Buyer</option>
+              <option>Investor</option>
+              <option>Law firm</option>
+              <option>Relocation firm</option>
+              <option>Family office</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="budget">Budget</label>
+            <select id="budget" name="budget">
+              <option>$1M to $1.5M</option>
+              <option>$1.5M to $2M</option>
+              <option>$2M to $3M</option>
+              <option>Above $3M</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="email">Email or phone</label>
+            <input id="email" name="email" type="text" required maxlength="120" autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" maxlength="1500" placeholder="What are you looking for? Area, size, timeline."></textarea>
+          </div>
+          <button type="submit" class="btn" id="sendBtn">Send enquiry</button>
+          <p class="form-note">We reply within one working day. Prefer WhatsApp? Use the green button.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Turkly. Istanbul, Türkiye.</div>
+      <div class="footer-links">
+        <a id="waLink" href="#" target="_blank" rel="noopener">WhatsApp: <span id="waText"></span></a>
+        <a id="mailLink" href="#">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <a id="waFloat" class="wa-float" href="#" target="_blank" rel="noopener" aria-label="Chat with Turkly on WhatsApp">
+    <svg viewBox="0 0 24 24" width="28" height="28" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+  </a>
+
+  <script>
+    // EDIT THESE TWO LINES ONLY
+    const WHATSAPP_NUMBER = "905357135432"; // country code + number, no + or spaces
+    const EMAIL = "mohammednizaer@gmail.com";
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("waLink").href = "https://wa.me/" + WHATSAPP_NUMBER;
+    document.getElementById("mailLink").href = "mailto:" + EMAIL;
+    document.getElementById("mailLink").textContent = EMAIL;
+    document.getElementById("waFloat").href = "https://wa.me/" + WHATSAPP_NUMBER;
+    document.getElementById("waText").textContent = "+" + WHATSAPP_NUMBER.replace(/^(\d{2})(\d{3})(\d{3})(\d{2})(\d{2})$/, "$1 $2 $3 $4 $5");
+
+    // Use the real Istanbul photo if istanbul.jpg is in the same folder
+    const heroPhoto = new Image();
+    heroPhoto.onload = function () { document.getElementById("hero").classList.add("has-photo"); };
+    heroPhoto.src = "istanbul.jpg";
+
+    // Count-up animation: any element with class "count" and a data-target number
+    function animateCount(el) {
+      const target = Number(el.dataset.target);
+      const duration = 1800;
+      const start = performance.now();
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(target * eased).toLocaleString("en-US");
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    const counters = document.querySelectorAll(".count");
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animateCount(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      counters.forEach(function (el) { observer.observe(el); });
+    } else {
+      counters.forEach(function (el) {
+        el.textContent = Number(el.dataset.target).toLocaleString("en-US");
+      });
+    }
+
+    document.getElementById("contact").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const f = e.target;
+      if (f["bot-field"].value) return; // spam bot filled the hidden field
+
+      const text =
+        "New enquiry from the Turkly website\n\n" +
+        "Name: " + f.name.value + "\n" +
+        "I am a: " + f.type.value + "\n" +
+        "Budget: " + f.budget.value + "\n" +
+        "Contact: " + f.email.value + "\n\n" +
+        f.message.value;
+      const waUrl = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
+
+      const btn = document.getElementById("sendBtn");
+      btn.disabled = true;
+      btn.textContent = "Sending...";
+
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(new FormData(f)).toString()
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error("Form not saved");
+          f.innerHTML =
+            '<div class="thanks"><h3>Thank you</h3>' +
+            '<p>We received your enquiry and will reply within one working day.</p>' +
+            '<a class="btn" target="_blank" rel="noopener" href="' + waUrl + '">Also send on WhatsApp</a></div>';
+        })
+        .catch(function () {
+          // Not hosted on Netlify yet (e.g. local preview): fall back to WhatsApp
+          window.open(waUrl, "_blank");
+          btn.disabled = false;
+          btn.textContent = "Send enquiry";
+        });
+    });
+  </script>
+</body>
+</html>
