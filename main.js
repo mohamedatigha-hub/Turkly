@@ -95,6 +95,71 @@ const EMAIL = "mohammednizaer@gmail.com";
     });
   });
 
+  /* Property photo galleries */
+  const galleryEls = $$("[data-gallery]");
+  if (galleryEls.length) {
+    const lb = document.createElement("div");
+    lb.className = "lightbox";
+    lb.setAttribute("role", "dialog");
+    lb.setAttribute("aria-modal", "true");
+    lb.innerHTML =
+      '<img alt="">' +
+      '<button class="lb-btn lb-close" aria-label="Close">&times;</button>' +
+      '<button class="lb-btn lb-prev" aria-label="Previous photo">&#8249;</button>' +
+      '<button class="lb-btn lb-next" aria-label="Next photo">&#8250;</button>' +
+      '<div class="lb-count"></div>';
+    document.body.appendChild(lb);
+    const img = $("img", lb), count = $(".lb-count", lb);
+    let photos = [], index = 0, lastFocus = null, caption = "";
+
+    const show = (i) => {
+      index = (i + photos.length) % photos.length;
+      img.src = photos[index];
+      count.textContent = (index + 1) + " / " + photos.length + (caption ? "  ·  " + caption : "");
+    };
+    const open = (list, title, cap) => {
+      photos = list; caption = cap || ""; lastFocus = document.activeElement;
+      img.alt = title || "Property photo";
+      lb.classList.toggle("single", photos.length < 2);
+      show(0);
+      lb.classList.add("open");
+      document.body.classList.add("lb-open");
+      $(".lb-close", lb).focus();
+    };
+    const close = () => {
+      lb.classList.remove("open");
+      document.body.classList.remove("lb-open");
+      if (lastFocus) lastFocus.focus();
+    };
+
+    galleryEls.forEach((el) => {
+      const list = el.dataset.gallery.split(",").map((x) => x.trim()).filter(Boolean);
+      const counter = $("[data-photo-count]", el);
+      if (counter && list.length > 1) counter.textContent = list.length + " photos";
+      list.slice(1).forEach((src) => { const pre = new Image(); pre.src = src; });
+      el.addEventListener("click", () => open(list, el.getAttribute("aria-label"), el.dataset.caption));
+    });
+
+    $(".lb-close", lb).addEventListener("click", close);
+    $(".lb-prev", lb).addEventListener("click", (e) => { e.stopPropagation(); show(index - 1); });
+    $(".lb-next", lb).addEventListener("click", (e) => { e.stopPropagation(); show(index + 1); });
+    lb.addEventListener("click", (e) => { if (e.target === lb) close(); });
+    document.addEventListener("keydown", (e) => {
+      if (!lb.classList.contains("open")) return;
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowLeft") show(index - 1);
+      if (e.key === "ArrowRight") show(index + 1);
+    });
+    let startX = null;
+    lb.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener("touchend", (e) => {
+      if (startX === null || photos.length < 2) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 45) show(index + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+  }
+
   /* Contact form: save to Netlify, fall back to WhatsApp */
   const form = $("#contact");
   if (form) {

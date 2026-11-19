@@ -77,12 +77,55 @@
                paste it below, then change the text.
                data-cat can be: apartment, villa, investment (several allowed, separated by spaces).
                For a photo, save it in the images folder and add a new class in style.css like .m-levent. -->
+          <!-- ===== 1+1 APARTMENT =====
+               data-gallery = every photo of this flat, separated by commas. The FIRST one is the main photo. -->
           <article class="listing reveal" data-cat="apartment investment">
-            <div class="media m-levent"><span class="listing-badge">First listing</span></div>
+            <button class="media has-gallery" style="--photo:url('images/1plus1-2.jpg')" data-gallery="images/1plus1-2.jpg, images/1plus1-main.jpg, images/1plus1-living-2.jpg, images/1plus1-bedroom.jpg, images/1plus1-wardrobe.jpg, images/1plus1-entry.jpg, images/1plus1-bathroom.jpg" aria-label="View photos of the 1+1 residence in Levent">
+              <span class="listing-badge">New listing</span>
+              <span class="photo-count" data-photo-count></span>
+            </button>
+            <div class="listing-body">
+              <span class="where">Levent · European side</span>
+              <h3>1+1 Residence</h3>
+              <div class="specs"><span>59 m² net</span><span>17th floor</span><span>Separate bedroom</span><span>Open-plan living &amp; kitchen</span></div>
+              <div class="listing-foot"><span class="price">Price on request</span><a href="contact.html" class="link-arrow">Enquire</a></div>
+            </div>
+          </article>
+
+          <!-- ===== 2+1 APARTMENT ===== -->
+          <article class="listing reveal d1" data-cat="apartment">
+            <button class="media has-gallery" style="--photo:url('images/2plus1-main.jpg')" data-gallery="images/2plus1-main.jpg, images/2plus1-living.jpg, images/2plus1-bedroom-view.jpg, images/2plus1-bedroom-2.jpg, images/2plus1-kitchen.jpg, images/2plus1-kitchen-dining.jpg, images/2plus1-bathroom-1.jpg, images/2plus1-bathroom-2.jpg" aria-label="View photos of the 2+1 apartment on the European side">
+              <span class="listing-badge">Skyline views</span>
+              <span class="photo-count" data-photo-count></span>
+            </button>
+            <div class="listing-body">
+              <span class="where">European side · Istanbul</span>
+              <h3>2+1 Apartment</h3>
+              <div class="specs"><span>113 m² net</span><span>19th floor</span><span>2 bedrooms, each with its own bathroom</span><span>37 m² living room</span></div>
+              <div class="listing-foot"><span class="price">Price on request</span><a href="contact.html" class="link-arrow">Enquire</a></div>
+            </div>
+          </article>
+
+          <!-- ===== 4+1 DUPLEX (social facilities belong to THIS project only) ===== -->
+          <article class="listing reveal d2" data-cat="villa investment">
+            <button class="media has-gallery" style="--photo:url('images/4plus1-main.jpg')" data-gallery="images/4plus1-main.jpg, images/4plus1-living-wide.jpg, images/4plus1-living.jpg, images/4plus1-dining.jpg, images/4plus1-garden.jpg" aria-label="View photos of the 4+1 duplex in Levent">
+              <span class="listing-badge">Garden duplex</span>
+              <span class="photo-count" data-photo-count></span>
+            </button>
             <div class="listing-body">
               <span class="where">Levent · European side</span>
               <h3>4+1 Duplex</h3>
-              <div class="specs"><span>4 bedrooms</span><span>Duplex</span><span>Prestigious business district</span></div>
+              <div class="specs"><span>244 m² living space</span><span>Two-floor layout</span><span>Private garden &amp; swimming pool</span><span>Prime Levent location</span></div>
+
+              <button class="facilities has-gallery" data-gallery="images/social-pool.jpg, images/social-gym.jpg, images/social-fireplace.jpg, images/social-lounge.jpg, images/social-lounge-2.jpg, images/social-dining.jpg, images/social-restaurant.jpg, images/social-reception.jpg" data-caption="3D visualization" aria-label="View the residents' social facilities">
+                <span class="fac-thumb" style="background-image:url('images/social-pool.jpg')"></span>
+                <span class="fac-text">
+                  <span class="fac-label">Residents' social facilities</span>
+                  <span class="fac-list">Indoor pool · Fitness studio · Fireplace lounge · Dining &amp; work spaces</span>
+                  <span class="fac-note">8 images · 3D visualizations</span>
+                </span>
+              </button>
+
               <div class="listing-foot"><span class="price">Price on request</span><a href="contact.html" class="link-arrow">Enquire</a></div>
             </div>
           </article>
@@ -138,6 +181,7 @@
           <li><a data-wa href="#">WhatsApp <span data-wa-text></span></a></li>
           <li><a data-mail href="#"><span data-mail-text></span></a></li>
           <li><a href="https://www.instagram.com/turkly_/" target="_blank" rel="noopener">Instagram @turkly_</a></li>
+          <li><a href="https://www.linkedin.com/company/turkly/" target="_blank" rel="noopener">LinkedIn</a></li>
           <li>Istanbul, Türkiye</li>
         </ul>
       </div>
