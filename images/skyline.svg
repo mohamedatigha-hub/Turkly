@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 260">
+  <g fill="#1B2633">
+    <path d="M0 225 Q300 195 600 215 T1200 210 V260 H0 Z"/>
+    <rect x="78" y="118" width="6" height="142"/>
+    <rect x="328" y="118" width="6" height="142"/>
+    <rect x="0" y="198" width="430" height="5"/>
+  </g>
+  <path d="M0 192 Q40 150 81 120 Q206 210 331 120 Q375 155 430 195" fill="none" stroke="#1B2633" stroke-width="2"/>
+  <g fill="#0A0F16">
+    <rect x="0" y="228" width="70" height="32"/><rect x="62" y="216" width="52" height="44"/><rect x="112" y="232" width="70" height="28"/>
+    <rect x="183" y="128" width="38" height="132"/><rect x="179" y="126" width="46" height="6"/><polygon points="179,128 202,62 225,128"/><rect x="200" y="50" width="4" height="14"/>
+    <rect x="225" y="222" width="62" height="38"/><rect x="285" y="230" width="80" height="30"/><rect x="362" y="219" width="56" height="41"/>
+    <rect x="416" y="234" width="92" height="26"/><rect x="505" y="224" width="70" height="36"/>
+    <rect x="574" y="96" width="8" height="164"/><polygon points="572,98 578,64 584,98"/>
+    <rect x="606" y="122" width="6" height="138"/><polygon points="604,124 609,96 614,124"/>
+    <rect x="590" y="200" width="262" height="60"/>
+    <path d="M600 216 Q600 184 642 180 L642 216 Z"/><path d="M800 180 Q842 184 842 216 L800 216 Z"/>
+    <path d="M640 202 Q640 138 721 132 Q802 138 802 202 Z"/><rect x="719" y="112" width="4" height="22"/>
+    <rect x="830" y="122" width="6" height="138"/><polygon points="828,124 833,96 838,124"/>
+    <rect x="860" y="96" width="8" height="164"/><polygon points="858,98 864,64 870,98"/>
+    <rect x="878" y="224" width="70" height="36"/>
+    <rect x="958" y="142" width="6" height="118"/><polygon points="956,144 961,118 966,144"/>
+    <rect x="970" y="212" width="124" height="48"/><path d="M982 214 Q982 172 1032 168 Q1082 172 1082 214 Z"/><rect x="1030" y="152" width="3" height="18"/>
+    <rect x="1100" y="142" width="6" height="118"/><polygon points="1098,144 1103,118 1108,144"/>
+    <rect x="1112" y="226" width="88" height="34"/>
+  </g>
+</svg>
