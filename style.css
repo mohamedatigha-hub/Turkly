@@ -86,7 +86,7 @@ h1 em, h2 em, h3 em { font-style: italic; color: var(--gold-light); }
 .brand { display: flex; align-items: center; gap: 10px; color: var(--gold-light); position: relative; z-index: 60; }
 .brand img { height: 46px; width: auto; }
 .brand-text { font-family: var(--serif); font-size: 1.7rem; font-weight: 600; letter-spacing: 0.2em; }
-.brand.has-img .brand-text { display: none; }
+.brand img { height: 40px; }
 
 .site-nav { display: flex; align-items: center; gap: 34px; }
 .site-nav a:not(.btn) {
@@ -345,6 +345,7 @@ body.lb-open .wa-float { display: none; }
 }
 .avatar.has-photo { color: transparent; }
 .av-mohamed { --photo: url("images/mohamed.jpg"); }
+.av-taha { --photo: url("images/taha.jpg"); }
 .member .role { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
 .member h3 { font-size: 2rem; margin: 6px 0 4px; }
 .member .sub { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }

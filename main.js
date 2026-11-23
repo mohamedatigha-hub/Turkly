@@ -5,6 +5,7 @@
 // EDIT THESE TWO LINES ONLY. They update every page at once.
 const WHATSAPP_NUMBER = "905357135432"; // country code + number, no + or spaces
 const EMAIL = "mohammednizaer@gmail.com";
+const WEB3FORMS_KEY = "479c66d6-9e36-4186-b089-fb27a1a19aa1"; // public form key, safe to keep here
 
 (function () {
   const $ = (sel, root) => (root || document).querySelector(sel);
@@ -182,20 +183,34 @@ const EMAIL = "mohammednizaer@gmail.com";
       btn.disabled = true;
       btn.textContent = "Sending...";
 
-      fetch("/", {
+      const payload = {
+        access_key: WEB3FORMS_KEY,
+        subject: "New Turkly enquiry from " + form.name.value,
+        from_name: "Turkly website",
+        name: form.name.value,
+        "I am a": form.type.value,
+        budget: form.budget.value,
+        contact: form.email.value,
+        "contact me by": form.contactBy.value,
+        language: form.language.value,
+        message: form.message.value
+      };
+      if (form.email.value.indexOf("@") > 0) payload.email = form.email.value; // lets you reply directly
+
+      fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(new FormData(form)).toString()
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload)
       })
         .then((res) => {
-          if (!res.ok) throw new Error("Form not saved");
+          if (!res.ok) throw new Error("Form not sent");
           form.innerHTML =
             '<div class="thanks"><h2>Thank you</h2>' +
             "<p>We received your enquiry and will reply within one working day.</p>" +
             '<a class="btn btn-gold" target="_blank" rel="noopener" href="' + waLink + '">Also send on WhatsApp</a></div>';
         })
         .catch(() => {
-          window.open(waLink, "_blank"); // not on Netlify (e.g. local preview)
+          window.open(waLink, "_blank"); // if sending fails, fall back to WhatsApp
           btn.disabled = false;
           btn.textContent = "Send enquiry";
         });
