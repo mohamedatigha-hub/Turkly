@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://turkly-property.com/sitemap.xml
